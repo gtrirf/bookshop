@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Delete Book
+{% endblock %}
+
+{% block content %}
+    <h2>Delete Book</h2>
+    <p>Are you sure you want to delete the book "{{ book.bookname }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'bookshop:main' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+  authors page
+{% endblock %}
+
+{% block content %}
+    <h2>List of Authors</h2>
+    <ul>
+        {% for author in authors %}
+              <li><a href="{% url 'bookshop:author_detail' author.pk %}">{{ author.firstname }} {{ author.lastname }}</a></li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+{% endblock %}

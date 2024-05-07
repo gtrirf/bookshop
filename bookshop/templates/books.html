@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+  books page
+{% endblock %}
+
+{% block content %}
+    <h2>List of books</h2>
+
+        {% for book in books %}
+           <li><a href="{% url 'bookshop:book_detail' book.pk %}">{{ book.bookname }}</a></li>
+        {% endfor %}
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+{% endblock %}

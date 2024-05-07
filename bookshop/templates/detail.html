@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Book Details
+{% endblock %}
+
+{% block content %}
+    <h2>Book Details</h2>
+    <div>
+        <img src="{{ book.image.url }}" alt="{{ book.bookname }}">
+        <h3>{{ book.bookname }}</h3>
+        <p>Description: {{ book.describtions }}</p>
+        <p>ISBN: {{ book.isbn }}</p>
+        <p>Price: ${{ book.price }}</p>
+        <p>Year: {{ book.year|date:"Y" }}</p>
+        <p>Category: {{ book.book_category }}</p>
+    </div>
+    <br>
+
+     <h3>Reviews</h3>
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.user }}: {{ review.comment }}<br> {{ review.stargiven }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'bookshop:main' %}">Main page</a><br>
+    <a href="{% url 'bookshop:update_books' pk=book.pk %}">update books</a><br>
+    <a href="{% url 'bookshop:delete_books' pk=book.pk%}">delete book</a><br>
+
+{% endblock %}
